@@ -28,11 +28,8 @@ Input:{[{}]  Output: False
 """
 class Solution:
     def isBalanced(self, parenthesis): 
-        stack = []
-        go = True
         if len(parenthesis)%2==1:
             return False
-
         if parenthesis[:len(parenthesis)//2] == parenthesis[len(parenthesis)//2:].replace(")","(").replace("]","[").replace("}","{")[::-1]:
             return True
         return False
