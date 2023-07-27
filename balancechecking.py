@@ -28,8 +28,25 @@ Input:{[{}]  Output: False
 """
 class Solution:
     def isBalanced(self, parenthesis): 
-        print(True)
-        print(False)
+        a = 0
+        b = 0
+        c = 0
+        stack = []
+        go = True
+        for i in parenthesis:
+            if i == "[":
+                a+=1
+            elif i == "]":
+                a-=1
+            elif i == "(":
+                b+=1
+            elif i == ")":
+                b-=1
+            elif i == "{":
+                c+=1
+            elif i == "}":
+                c-=1
+        return a == 0 and b == 0 and c == 0
                 
 
     
