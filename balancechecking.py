@@ -28,19 +28,28 @@ Input:{[{}]  Output: False
 """
 class Solution:
     def isBalanced(self, parenthesis): 
+        a = 0
+        b = 0
+        c = 0
         stack = []
         go = True
-        for i in range(len(parenthesis)//2):
-            if parenthesis[i] == "[" or parenthesis[i] == "{" or parenthesis[i] == "(":
-                stack.append(parenthesis[i])
-        
-        for i in range(len(parenthesis)//2,len(parenthesis)):
-            if parenthesis[i] == "]" or parenthesis[i] == "}" or parenthesis[i] == ")":
-                if parenthesis[i].replace("]","[").replace("}","{").replace(")","(") == stack[-1]:
-                    stack.pop(-1)
-                else:
-                    go = False
-        return go
+        for i in parenthesis:
+            if i == "[":
+                a+=1
+            elif i == "]":
+                a-=1
+            elif i == "(":
+                b+=1
+            elif i == ")":
+                b-=1
+            elif i == "{":
+                c+=1
+            elif i == "}":
+                c-=1
+        return a == 0 and b == 0 and c == 0
+                
+
+    
 
 def main():
     str1=input()
