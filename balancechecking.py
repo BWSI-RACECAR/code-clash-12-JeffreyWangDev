@@ -31,14 +31,15 @@ class Solution:
         stack = []
         go = True
         for i in range(len(parenthesis)//2):
-            stack.append(parenthesis[i])
+            if parenthesis[i] == "[" or parenthesis[i] == "{" or parenthesis[i] == "(":
+                stack.append(parenthesis[i])
         
         for i in range(len(parenthesis)//2,len(parenthesis)):
-            print(parenthesis[i])
-            if parenthesis[i].replace("]","[").replace("}","{").replace(")","(") == stack[-1]:
-                stack.pop(-1)
-            else:
-                go = False
+            if parenthesis[i] == "]" or parenthesis[i] == "}" or parenthesis[i] == ")":
+                if parenthesis[i].replace("]","[").replace("}","{").replace(")","(") == stack[-1]:
+                    stack.pop(-1)
+                else:
+                    go = False
         return go
 
 def main():
